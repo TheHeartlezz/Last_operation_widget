@@ -217,3 +217,6 @@ __marimo__/
 
 # Tests folder removed
 test/
+
+#Удаленн для временной ненадобностью
+main.py
