@@ -1,4 +1,5 @@
-from .mask import get_mask_account, get_mask_card_number
+from .mask import get_mask_account
+from .mask import get_mask_card_number
 
 
 def mask_account_card(bank_card: str) -> str:
@@ -12,9 +13,9 @@ def mask_account_card(bank_card: str) -> str:
         elif symbol.isdigit():
             accesory_number += symbol
     if accesory_name == 'Счет':
-        masked_digit = get_mask_account(accesory_number)
+        masked_digit = get_mask_account(int(accesory_number))
     else:
-        masked_digit = get_mask_card_number(accesory_number)
+        masked_digit = get_mask_card_number(int(accesory_number))
     return f'{accesory_name}: {masked_digit}'
 
 
