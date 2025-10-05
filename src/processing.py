@@ -1,5 +1,5 @@
 
-def filter_by_state(transaction_log: list, state = 'EXECUTED') -> list:
+def filter_by_state(transaction_log: list, state: str = 'EXECUTED') -> list:
     """Функция принимает список словарей и опционально значение для ключ
     Функция возвращает новый список словарей, содержащий только те словари,
     у которых ключ state  соответствует указанному значению"""
@@ -13,9 +13,9 @@ def filter_by_state(transaction_log: list, state = 'EXECUTED') -> list:
 
 
 
-def sort_by_date(transaction_log: list, direction = 'decending') -> list:
+def sort_by_date(transaction_log: list, is_reverse: bool = True) -> list:
     """Функция принимает список словарей и необязательный параметр direction,
     задающий порядок сортировки (по умолчанию — убывание).
     Функция возвращает новый список, отсортированный по дате"""
-
-    pass
+    transaction_sorted = sorted(transaction_log, key=lambda transaction: transaction['date'], reverse=is_reverse)
+    return transaction_sorted
